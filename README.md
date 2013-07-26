@@ -2,6 +2,7 @@ SmartDict
 =========
 
 A suite consisted of a Chrome extension and an iOS app aiming at effectively learning English words via surfing the web.
+
 This is the Chrome extension part.
 
 How to use?
@@ -11,14 +12,15 @@ Click the SmartDict button to start the extension working for the current page, 
 
 Deleting word is not available with the extension, if which is necessary, use `window.localStorage.clear()` in your console. 
 
-Credit
-======
+Credits
+=======
 
 [hint.css](https://github.com/chinchang/hint.css) for displaying tooltips.
+
 [Pervasive GRE](https://github.com/yiransheng/Pervasive-GRE) for inspration.
 
-TO-DO
-=====
+TO-DOs
+======
 
 - affixes handling
 - key binding
