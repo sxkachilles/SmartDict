@@ -1,0 +1,28 @@
+{
+	"name": "SmartDict",
+	"version": "0.1",
+	"manifest_version": 2,
+	"icons": {
+		"128": "images/icon128.png"
+	},
+	"browser_action": {
+		"default_icon": {
+			"19": "images/icon19.png",
+			"38": "images/icon38.png"
+		},
+		"default_title": "SmartDict"
+	},
+	"background": {
+		"scripts": ["background.js"]
+	},
+	"content_scripts": [{
+		"matches": ["http://*/*", "https://*/*"],
+		"css": ["assets/hint.min.css", "assets/main.css"],
+		"js": ["content.js"]
+	}],
+	"permissions": [
+		"tabs",
+		"http://*/*",
+		"https://*/*"
+	]
+}
