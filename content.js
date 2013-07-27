@@ -3,7 +3,7 @@ var highlightWraper = function(word, meaning){
     var span = '<span class="smart-dict hint--top hint--rounded hint--error ' +
             word + '" word="' + word + '" data-hint="' + meaning + '">' + word +
             // American tongue with argument type=2
-            '<video src="http://dict.youdao.com/dictvoice?audio=' + word + '&type=2"></video></span>';
+            '<video class="smart-dict-audio" src="http://dict.youdao.com/dictvoice?audio=' + word + '&type=2"></video></span>';
     var newNode;
     var elements;
 

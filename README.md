@@ -19,6 +19,8 @@ Credits
 
 [Pervasive GRE](https://github.com/yiransheng/Pervasive-GRE) for inspration.
 
+[Youdao Dict](http://dict.youdao.com) for dict API.
+
 TO-DOs
 ======
 
@@ -26,3 +28,8 @@ TO-DOs
 - key binding
 - remote synchronizing
 - iOS app
+
+Bug fix
+=======
+
+- 20130727, fix conflict with bootstrap
