@@ -1,5 +1,5 @@
 var highlightWraper = function(word, meaning){
-    var pattern = new RegExp('\\b' + word + '\\b', 'g');
+    var pattern = new RegExp('\\b' + word + '\\b', 'gi');
     var span = '<span class="smart-dict hint--top hint--rounded hint--error ' +
             word + '" word="' + word + '" data-hint="' + meaning + '">' + word +
             // American tongue with argument type=2
@@ -36,7 +36,7 @@ var highlightWraper = function(word, meaning){
 chrome.runtime.onMessage.addListener(
     function(request, sender, sendResponse){
         // Confirm command highlight
-        if(request.highlight){
+        if(request.action === 'highlight'){
             // console.log("received_msg_highlight:" + request.word);
             highlightWraper(request.word, request.meaning);
         }
@@ -48,8 +48,15 @@ document.addEventListener('dblclick', function(e){
         word = window.getSelection().toString().trim();
         if(/[A-Za-z\-]+/.test(word)){
             // As default, the message will be sent to associated extension
-            chrome.runtime.sendMessage({add: true, word: word});
+            chrome.runtime.sendMessage({action: 'add', word: word});
         }
     }
 });
+
+document.addEventListener('keydown', function(e){
+    // Highlight all words in current page, binded to CTRL + COMMAND + H by default
+    if(e.ctrlKey && e.metaKey && e.keyCode === 72){
+        chrome.runtime.sendMessage({action: 'highlight_all'});
+    }
+})
 

@@ -1,20 +1,30 @@
 // Map dict object to persistent localStorage
 var dict = window.localStorage;
-
-chrome.browserAction.onClicked.addListener(function(tab){
-	// Traverse all words in dict and get them highlighted
-	for(var word in dict){
-		chrome.tabs.sendMessage(tab.id, {highlight: true, word: word, meaning: dict[word]});
-	}
-	// Only after the extension is activated, new words can be received
-	chrome.runtime.onMessage.addListener(
-		function(request, sender, sendResponse){
-			if(sender.tab && request.add && dict[request.word] === undefined){
+// After the browser started, new words can be added
+chrome.runtime.onMessage.addListener(
+	function(request, sender, sendResponse){
+		if(sender.tab && request.action === 'add'){
+			if(dict[request.word] === undefined){
 				// Handle message sending in xhr callback
 				getMeaning(request.word);
 			}
-		});
+			else{
+				chrome.tabs.sendMessage(sender.tab.id, {action: 'highlight', word: word, meaning: dict[word]});
+			}
+		}
+		else if(sender.tab && request.action === 'highlight_all'){
+			// Traverse all words in dict and get them highlighted
+			for(var word in dict){
+				chrome.tabs.sendMessage(sender.tab.id, {action: 'highlight', word: word, meaning: dict[word]});
+			}
+		}
+	});
+
+chrome.browserAction.onClicked.addListener(function(tab){
+	// Popup for deleting words
+	
 });
+
 
 var getMeaning = function(word){
 	var xhr = new XMLHttpRequest();
@@ -47,7 +57,7 @@ var getMeaning = function(word){
 			}
 			dict[word] = meaning;
 			chrome.tabs.query({active: true, currentWindow: true}, function(tabs){
-				chrome.tabs.sendMessage(tabs[0].id, {highlight: true, word: word, meaning: dict[word]});
+				chrome.tabs.sendMessage(tabs[0].id, {action: 'highlight', word: word, meaning: dict[word]});
 			});
 		}
 	};

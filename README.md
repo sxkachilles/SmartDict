@@ -8,9 +8,9 @@ This is the Chrome extension part.
 How to use?
 ===========
 
-Click the SmartDict button to start the extension working for the current page, after which press `alt` and double click one word to add it into word database.
+Press `ctrl + command + h` to hightlight all words from word database for current page, however even without that querying and highlighting one word is still supported, just press `alt` and double click one word to add it into word database.
 
-Deleting word is not available with the extension, if which is necessary, use `window.localStorage.clear()` in your console. 
+Deleting word is not available with the extension, if which is necessary, use `window.localStorage.clear()` in background console. 
 
 Credits
 =======
@@ -19,7 +19,7 @@ Credits
 
 [Pervasive GRE](https://github.com/yiransheng/Pervasive-GRE) for inspration.
 
-[Youdao Dict](http://dict.youdao.com) for dict API.
+[Youdao Dict](http://dict.youdao.com) for dictionary API.
 
 TO-DOs
 ======
@@ -33,3 +33,5 @@ Bug fix
 =======
 
 - 20130727, fix conflict with bootstrap
+- 20120802, change to case insensitive
+			optimize highlight logic and add highlight all words key bind `ctrl + command + h`
