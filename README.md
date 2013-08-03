@@ -36,8 +36,8 @@ TO-DOs
 Changelog
 =========
 
-- 20130727: fix conflict with Bootstrap
-- 20120802: change to case insensitive
--			optimize highlight logic and add highlighting all words key binding `ctrl + command + h`
 - 20130804: add a highlighting all words success state badge on the extension icon
--			add a popup for deleting words in word database
+- 20130804: add a popup for deleting words in word database
+- 20130802: change to case insensitive
+- 20130802: optimize highlight logic and add highlighting all words key binding `ctrl + command + h`
+- 20130727: fix conflict with Bootstrap
