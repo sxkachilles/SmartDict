@@ -17,6 +17,8 @@ chrome.runtime.onMessage.addListener(
 			for(var word in dict){
 				chrome.tabs.sendMessage(sender.tab.id, {action: 'highlight', word: word, meaning: dict[word]});
 			}
+			// Set a success state badge on the extension icon
+			chrome.browserAction.setBadgeText({text: '√', tabId: sender.tab.id});
 		}
 	});
 
