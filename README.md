@@ -36,6 +36,7 @@ TO-DOs
 Changelog
 =========
 
+- 20130806: change highlighted words style
 - 20130804: add a highlighting all words success state badge on the extension icon
 - 20130804: add a popup for deleting words in word database
 - 20130802: change to case insensitive
