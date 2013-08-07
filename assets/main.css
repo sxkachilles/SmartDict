@@ -1,6 +1,7 @@
 .smart-dict {
 	background-color: #DCFFE2;
 	border: 1px solid #DEDEDE;
+	margin: -1px;
 }
 
 video.smart-dict-audio {
